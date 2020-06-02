@@ -1,8 +1,10 @@
 package ReceiveData;
 
 	import java.io.File;
+
 	import java.util.Iterator;
 import java.util.Map;
+import java.util.ArrayList;
 import java.util.HashMap;
 	import com.amazonaws.AmazonClientException;
 	import com.amazonaws.auth.profile.ProfileCredentialsProvider;
@@ -23,6 +25,8 @@ import com.amazonaws.services.dynamodbv2.model.ScanRequest;
 	
 	
 	public class Scan {
+		
+		ArrayList<String>Schools = new ArrayList<String>();
 		
 		public static void main(String[] args)
 		{

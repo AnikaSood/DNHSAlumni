@@ -1,5 +1,6 @@
 package ReceiveData;
 import java.io.File;
+
 import java.util.Iterator;
 import java.util.Scanner;
 import java.util.HashMap;
@@ -37,16 +38,16 @@ public class Query {
 			DynamoDB dynamoDB = new DynamoDB(client);
 			Table table = dynamoDB.getTable("DNSeniors");
 			QuerySpec spec = new QuerySpec()
-			    .withKeyConditionExpression(name = "Anya Chandorkar")
+			    .withKeyConditionExpression("Stu = Student")
 			    .withValueMap(new ValueMap()
-			        .withString(name, "Amazon DynamoDB#DynamoDB Thread 1"));
+			        .withString("Student", name));
 			ItemCollection<QueryOutcome> items = table.query(spec);
 			Iterator<Item> iterator = items.iterator();
 			Item item = null;
 
 			while (iterator.hasNext()) {
 			    item = iterator.next();
-			    System.out.println(item.get("College"));
+			    System.out.println(iterator.next().toJSONPretty());
 			}
 }
 
